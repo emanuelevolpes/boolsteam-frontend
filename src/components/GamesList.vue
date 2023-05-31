@@ -22,7 +22,7 @@ export default {
             <h2 class="py-3">I GIOCHI</h2>
             <div class="d-flex flex-column gap-1">
 
-                <GameListBanner :game="game" v-for="game in this.store.games.data" />
+                <GameListBanner :game="game" v-for="game in this.store.games" />
             </div>
         </div>
     </section>
