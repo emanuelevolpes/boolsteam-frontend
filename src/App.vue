@@ -1,7 +1,7 @@
 <script>
 import AppJumbo from './components/AppJumbo.vue';
 export default {
-  name:'App',
+  name: 'App',
   components: {
     AppJumbo
   }
