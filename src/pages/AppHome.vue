@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h1 class="text-center p-4">HOME PAGE</h1>
+        <AppJumbo />
         <GamesList />
     </section>
 </template>
@@ -10,12 +10,14 @@ import axios from 'axios';
 import store from '../store';
 
 import GamesList from '../components/GamesList.vue';
+import AppJumbo from '../components/AppJumbo.vue';
 
 export default {
     name: 'AppHome',
     components: {
-        GamesList
-    },
+    GamesList,
+    AppJumbo
+},
     data() {
         return {
             store,
