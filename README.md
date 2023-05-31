@@ -1,10 +1,7 @@
-# Vue Template
+# Boolsteam
 
-Template di partenza per progetti Vue con option API
-
-Per installare il progetto
-- npm install
-- npm run dev
-
-
-
+## Containers
+- Header, navbar & highlight width: 1200px;
+- Special offers width: 1330px;
+- Games list width: 1720px;
+- Footer width: 1520px;
