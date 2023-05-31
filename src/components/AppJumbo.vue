@@ -1,5 +1,6 @@
 <script>
 import store from '../store';
+import PriceTag from './PriceTag.vue';
 import axios from 'axios';
 export default {
     name: 'AppJumbo',
@@ -26,7 +27,6 @@ export default {
     created(){
         this.getOneGame();
     }
-    
 }
 </script>
 <template>
@@ -68,7 +68,9 @@ export default {
         <h4>OFFERTE SPECIALI</h4>
         <div class="special_offer_container d-flex">
             <div class="special_offer_game">
-                <div class="special_offer_img">img</div>
+                <div class="special_offer_img"><img
+                        src="https://assets.2k.com/1a6ngf98576c/2RNTmC7iLr6YVlxBSmE4M3/11177cffa2bdbedb226b089c4108726a/NBA23-WEBSITE-PRE_ORDER-HOMPAGE-MODULE2-RETAIL_CAROUSEL-CROSSGEN_EDITION-425x535.jpg">
+                </div>
                 <div class="special_offer_price d-flex">
                     <div class="special_offer_discount d-flex align-items-center">50%</div>
                     <div class="special_offer_prices">
@@ -78,7 +80,9 @@ export default {
                 </div>
             </div>
             <div class="special_offer_game">
-                <div class="special_offer_img">img</div>
+                <div class="special_offer_img"><img
+                        src="https://cdn.cloudflare.steamstatic.com/steam/apps/42700/capsule_616x353.jpg?t=1654809667">
+                </div>
                 <div class="special_offer_price d-flex">
                     <div class="special_offer_discount d-flex align-items-center">50%</div>
                     <div class="special_offer_prices">
@@ -88,7 +92,9 @@ export default {
                 </div>
             </div>
             <div class="special_offer_game">
-                <div class="special_offer_img">img</div>
+                <div class="special_offer_img">
+                <img src="https://cdn2.unrealengine.com/uncharted-legacy-of-thieves-2400x1350-48ae6d0d3c67.png">
+                </div>
                 <div class="special_offer_price d-flex">
                     <div class="special_offer_discount d-flex align-items-center">50%</div>
                     <div class="special_offer_prices">
@@ -106,7 +112,6 @@ export default {
 .container_jumbo {
     background-image: url(https://picsum.photos/200/300);
     background-size: cover;
-    width: 1140px;
     padding-bottom: 30px;
 
     .jumbo_title {
@@ -158,7 +163,7 @@ export default {
     }
 
     .price {
-        width: 60%;
+        width: 50%;
     }
 
     .discount {
@@ -220,8 +225,11 @@ export default {
 }
 
 // special offer 
+.container {
+    max-width: 100%;
+}
+
 .container_special_offer {
-    max-width: 980px;
     background-color: #0f1014;
     padding-bottom: 100px;
     padding-top: 30px;
@@ -229,11 +237,13 @@ export default {
     h4 {
         color: white;
         padding-bottom: 20px;
+        padding-left: 50px;
     }
 }
 
 .special_offer_container {
     justify-content: space-between;
+    padding: 20px 50px;
 }
 
 .special_offer_game {
@@ -242,8 +252,15 @@ export default {
 }
 
 .special_offer_img {
-    height: 285px;
+    height: 300px;
     width: 100%;
+
+    img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
 }
 
 .special_offer_price {
@@ -276,14 +293,15 @@ export default {
 }
 
 // debug 
-.special_offer_img {
-    border: 1px solid white;
-}
+// .special_offer_img {
+//     // border: 1px solid white;
+// }
 
-.left_slide {
-    border: 1px solid white;
-}
+// .left_slide {
+//     border: 1px solid white;
+// }
 
-.right_slide {
-    border: 1px solid white;
-}</style>
+// .right_slide {
+//     border: 1px solid white;
+// }
+</style>
