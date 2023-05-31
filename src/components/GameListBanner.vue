@@ -15,8 +15,8 @@ export default {
         </div>
         <div class="details col p-1">
             <h3>TITOLO GIOCO</h3>
-            <div class="tags d-flex g-1">
-                <span class="p-1">sparatutto</span>
+            <div class="tags d-flex align-items-center g-1">
+                <span>sparatutto</span>
             </div>
             <div class="d-flex">
                 <div class="release-date">11 settembre 2011</div>
@@ -25,7 +25,7 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="price col-3 p-1 d-flex align-items-end">
+        <div class="price col-2 p-1 d-flex align-items-end">
             <PriceTag class="h-50" />
         </div>
     </div>
@@ -39,9 +39,12 @@ export default {
         color: white;
         opacity: 0.7;
 
-        .span {
-            background-color: #49515b;
+        span {
+            background-color: #515964;
+            padding: .3125rem;
             font-size: 1rem;
+            text-align: center;
+            border-radius: .3125rem;
         }
     }
 }

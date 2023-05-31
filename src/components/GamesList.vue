@@ -24,6 +24,7 @@ section {
     background-color: #4b5b6a;
 
     .container {
+        padding-bottom: 100px;
 
         h2 {
             color: white;
