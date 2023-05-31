@@ -1,6 +1,32 @@
 <script>
+import store from '../store';
+import axios from 'axios';
 export default {
-    name: 'AppJumbo'
+    name: 'AppJumbo',
+    data() {
+        return {
+            store,
+            oneGame: []
+        }
+    },
+    methods: {
+        getOneGame() {
+            axios.get(`${this.store.oneGameApi}/api/game`)
+            .then((response) => {
+                this.oneGame = response.data.game;
+                console.log(this.oneGame);            
+            })
+        }
+    },
+    computed:{
+        discountPrice(){
+            return this.oneGame.price - ((this.oneGame.price / 100) * this.oneGame.discount);
+        }
+    },
+    created(){
+        this.getOneGame();
+    }
+    
 }
 </script>
 <template>
@@ -13,23 +39,21 @@ export default {
             <div class="left_slide"></div>
             <div class="game_container d-flex">
                 <div class="game_img d-flex">
-                    <div class="game_tag">tag</div>
+                    <div class="game_tag p-1"><font-awesome-icon icon="fa-solid fa-bookmark" /></div>
                     <div class="price d-flex">
-                        <div class="discount d-flex">50%</div>
+                        <div class="discount d-flex">-{{ oneGame.discount }}%</div>
                         <div class="discount_price d-flex">
-                            <small>price</small>
-                            <p>price/</p>
+                            <small>{{ oneGame.price }}€</small>
+                            <p>{{ discountPrice.toFixed(2) }}€</p>
                         </div>
                     </div>
                 </div>
                 <!-- game info  -->
                 <div class="game_info">
-                    <h3>Titolo gioco</h3>
-                    <h5>Data di rilascio:</h5>
+                    <h3>{{ oneGame.title }}</h3>
+                    <h5>Data di rilascio: {{ oneGame.year }}</h5>
                     <div class="info_tag d-flex">
-                        <div class="info_tags">tag</div>
-                        <div class="info_tags">tag</div>
-                        <div class="info_tags">tag</div>
+                        <div class="info_tags" v-for="tag in oneGame.tags">{{ tag.name }}</div>
                     </div>
                     <div class="info_tag_down"></div>
                 </div>
@@ -43,76 +67,83 @@ export default {
     <div class="container container_special_offer">
         <h4>OFFERTE SPECIALI</h4>
         <div class="special_offer_container d-flex">
-                <div class="special_offer_game">
-                    <div class="special_offer_img">img</div>
-                    <div class="special_offer_price d-flex">
-                        <div class="special_offer_discount d-flex align-items-center">50%</div>
-                        <div class="special_offer_prices">
-                            <small>price</small>
-                            <p>price/</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="special_offer_game">
-                    <div class="special_offer_img">img</div>
-                    <div class="special_offer_price d-flex">
-                        <div class="special_offer_discount d-flex align-items-center">50%</div>
-                        <div class="special_offer_prices">
-                            <small>price</small>
-                            <p>price/</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="special_offer_game">
-                    <div class="special_offer_img">img</div>
-                    <div class="special_offer_price d-flex">
-                        <div class="special_offer_discount d-flex align-items-center">50%</div>
-                        <div class="special_offer_prices">
-                            <small>price</small>
-                            <p>price/</p>
-                        </div>
+            <div class="special_offer_game">
+                <div class="special_offer_img">img</div>
+                <div class="special_offer_price d-flex">
+                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_prices">
+                        <small>price</small>
+                        <p>price/</p>
                     </div>
                 </div>
             </div>
+            <div class="special_offer_game">
+                <div class="special_offer_img">img</div>
+                <div class="special_offer_price d-flex">
+                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_prices">
+                        <small>price</small>
+                        <p>price/</p>
+                    </div>
+                </div>
+            </div>
+            <div class="special_offer_game">
+                <div class="special_offer_img">img</div>
+                <div class="special_offer_price d-flex">
+                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_prices">
+                        <small>price</small>
+                        <p>price/</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /special offer  -->
 </template>
 <style lang="scss" scoped>
 // jumbotrone 
-.container_jumbo{
+.container_jumbo {
     background-image: url(https://picsum.photos/200/300);
     background-size: cover;
     width: 1140px;
     padding-bottom: 30px;
-    .jumbo_title{
+
+    .jumbo_title {
         width: 70%;
         margin: auto;
-        h1{
+
+        h1 {
             color: white;
         }
     }
 }
-.jumbo{
+
+.jumbo {
     height: 300px;
     justify-content: space-around;
     align-items: center;
     padding-bottom: 20px;
 }
-.game_container{
+
+.game_container {
     width: 80%;
     height: 100%;
 }
-.left_slide{
+
+.left_slide {
     width: 5%;
     height: 60%;
     background-color: rgba(14, 13, 13, 0.4);
 }
-.right_slide{
+
+.right_slide {
     width: 5%;
     height: 60%;
     background-color: rgba(14, 13, 13, 0.4);
 }
-.game_img{
+
+.game_img {
     width: 30%;
     height: 100%;
     background-image: url(https://picsum.photos/200/300);
@@ -120,84 +151,105 @@ export default {
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    .game_tag{
+
+    .game_tag {
         background-color: #026db3;
         color: white;
     }
-    .price{
-        width: 50%;
+
+    .price {
+        width: 60%;
     }
-    .discount{
+
+    .discount {
         background-color: #4b6a24;
         color: #b9ee17;
         align-items: center;
-        font-size: 25px;
+        font-size: 17px;
         width: 50%;
+        justify-content: center;
     }
-    .discount_price{
+
+    .discount_price {
+        justify-content: center;
         align-items: center;
         flex-direction: column;
         width: 50%;
         background-color: #344650;
-
-        p{
-        color: #b9ee17;
-        margin-bottom: 0;
-
+        font-size: 12px;
+        color: white;
         small{
-        color: lightgray; }
-    }
+            text-decoration: line-through 1px;
+        }
+        p {
+            color: #b9ee17;
+            margin-bottom: 0;
+
+            small {
+                color: lightgray;
+            }
+        }
     }
 }
 
 // game info 
-.game_info{
+.game_info {
     width: 70%;
     padding-left: 10px;
     padding-right: 40px;
     background-color: rgba(204, 202, 202, 0.2);
 
-    h3{
+    h3 {
         color: white;
     }
-    h5{
+
+    h5 {
         color: gray;
     }
-    .info_tag{
+
+    .info_tag {
         color: #95969a;
         justify-content: space-between;
         flex-wrap: wrap;
     }
-    .info_tags{
+
+    .info_tags {
         margin-right: 5px;
-        background-color: rgba(95, 94, 94, 0.3);    }
+        background-color: rgba(95, 94, 94, 0.3);
+    }
 }
+
 // special offer 
 .container_special_offer {
     max-width: 980px;
     background-color: #0f1014;
     padding-bottom: 100px;
     padding-top: 30px;
-    h4{
+
+    h4 {
         color: white;
         padding-bottom: 20px;
     }
 }
-.special_offer_container{
+
+.special_offer_container {
     justify-content: space-between;
 }
+
 .special_offer_game {
     width: calc(100%/3 - 30px);
     height: 300px;
 }
-.special_offer_img{
+
+.special_offer_img {
     height: 285px;
     width: 100%;
 }
 
-.special_offer_price{
+.special_offer_price {
     width: 45%;
 }
+
 .special_offer_discount {
     background-color: #4b6a24;
     color: #b9ee17;
@@ -205,29 +257,33 @@ export default {
     width: 50%;
     justify-content: center;
 }
-.special_offer_prices{
+
+.special_offer_prices {
     width: 50%;
     background-color: #344650;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    p{
+    p {
         color: #b9ee17;
         margin-bottom: 0;
     }
-    small{
+
+    small {
         color: lightgray;
     }
 }
+
 // debug 
-.special_offer_img{
+.special_offer_img {
     border: 1px solid white;
 }
-.left_slide{
+
+.left_slide {
     border: 1px solid white;
 }
-.right_slide{
+
+.right_slide {
     border: 1px solid white;
-}
-</style>
+}</style>
