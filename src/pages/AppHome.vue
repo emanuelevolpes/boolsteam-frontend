@@ -23,10 +23,12 @@ export default {
     },
     methods: {
         getGames() {
+            console.log(this.store.games);
+            this.store.games = [];
+
             axios.get(this.store.gamesApi)
                 .then((response) => {
-                    console.log(response);
-                    this.store.games = response.data;
+                    this.store.games = response.data.games;
                 })
         }
     },

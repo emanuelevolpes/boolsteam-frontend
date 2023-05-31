@@ -1,9 +1,17 @@
 <script>
 import GameListBanner from './GameListBanner.vue';
+import store from '../store';
+
 export default {
     name: 'GamesList',
+    data() {
+        return {
+            store,
+        }
+    },
     components: {
-        GameListBanner
+        GameListBanner,
+
     }
 }
 </script>
@@ -13,7 +21,8 @@ export default {
         <div class="container">
             <h2 class="py-3">I GIOCHI</h2>
             <div class="d-flex flex-column gap-1">
-                <GameListBanner />
+
+                <GameListBanner :game="game" v-for="game in this.store.games.data" />
             </div>
         </div>
     </section>
