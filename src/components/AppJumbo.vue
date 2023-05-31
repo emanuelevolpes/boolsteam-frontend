@@ -1,6 +1,20 @@
 <script>
+import store from '../store';
+import PriceTag from './PriceTag.vue';
+
 export default {
-    name: 'AppJumbo'
+    name: 'AppJumbo',
+    data() {
+        return {
+            store,
+        }
+    },
+    props: {
+        game: Object,
+    },
+    components: {
+        PriceTag
+    }
 }
 </script>
 <template>
@@ -43,76 +57,87 @@ export default {
     <div class="container container_special_offer">
         <h4>OFFERTE SPECIALI</h4>
         <div class="special_offer_container d-flex">
-                <div class="special_offer_game">
-                    <div class="special_offer_img">img</div>
-                    <div class="special_offer_price d-flex">
-                        <div class="special_offer_discount d-flex align-items-center">50%</div>
-                        <div class="special_offer_prices">
-                            <small>price</small>
-                            <p>price/</p>
-                        </div>
-                    </div>
+            <div class="special_offer_game">
+                <div class="special_offer_img"><img
+                        src="https://assets.2k.com/1a6ngf98576c/2RNTmC7iLr6YVlxBSmE4M3/11177cffa2bdbedb226b089c4108726a/NBA23-WEBSITE-PRE_ORDER-HOMPAGE-MODULE2-RETAIL_CAROUSEL-CROSSGEN_EDITION-425x535.jpg">
                 </div>
-                <div class="special_offer_game">
-                    <div class="special_offer_img">img</div>
-                    <div class="special_offer_price d-flex">
-                        <div class="special_offer_discount d-flex align-items-center">50%</div>
-                        <div class="special_offer_prices">
-                            <small>price</small>
-                            <p>price/</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="special_offer_game">
-                    <div class="special_offer_img">img</div>
-                    <div class="special_offer_price d-flex">
-                        <div class="special_offer_discount d-flex align-items-center">50%</div>
-                        <div class="special_offer_prices">
-                            <small>price</small>
-                            <p>price/</p>
-                        </div>
+                <div class="special_offer_price d-flex">
+                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_prices">
+                        <small>price</small>
+                        <p>price/</p>
                     </div>
                 </div>
             </div>
+            <div class="special_offer_game">
+                <div class="special_offer_img"><img
+                        src="https://cdn.cloudflare.steamstatic.com/steam/apps/42700/capsule_616x353.jpg?t=1654809667">
+                </div>
+                <div class="special_offer_price d-flex">
+                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_prices">
+                        <small>price</small>
+                        <p>price/</p>
+                    </div>
+                </div>
+            </div>
+            <div class="special_offer_game">
+                <div class="special_offer_img"><img
+                        src="https://cdn2.unrealengine.com/uncharted-legacy-of-thieves-2400x1350-48ae6d0d3c67.png"></div>
+                <div class="special_offer_price d-flex">
+                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_prices">
+                        <small>price</small>
+                        <p>price/</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /special offer  -->
 </template>
 <style lang="scss" scoped>
 // jumbotrone 
-.container_jumbo{
+.container_jumbo {
     background-image: url(https://picsum.photos/200/300);
     background-size: cover;
-    width: 1140px;
     padding-bottom: 30px;
-    .jumbo_title{
+
+    .jumbo_title {
         width: 70%;
         margin: auto;
-        h1{
+
+        h1 {
             color: white;
         }
     }
 }
-.jumbo{
+
+.jumbo {
     height: 300px;
     justify-content: space-around;
     align-items: center;
     padding-bottom: 20px;
 }
-.game_container{
+
+.game_container {
     width: 80%;
     height: 100%;
 }
-.left_slide{
+
+.left_slide {
     width: 5%;
     height: 60%;
     background-color: rgba(14, 13, 13, 0.4);
 }
-.right_slide{
+
+.right_slide {
     width: 5%;
     height: 60%;
     background-color: rgba(14, 13, 13, 0.4);
 }
-.game_img{
+
+.game_img {
     width: 30%;
     height: 100%;
     background-image: url(https://picsum.photos/200/300);
@@ -120,79 +145,105 @@ export default {
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    .game_tag{
+
+    .game_tag {
         background-color: #026db3;
         color: white;
     }
-    .price{
+
+    .price {
         width: 50%;
     }
-    .discount{
+
+    .discount {
         background-color: #4b6a24;
         color: #b9ee17;
         align-items: center;
         font-size: 25px;
         width: 50%;
     }
-    .discount_price{
+
+    .discount_price {
         align-items: center;
         flex-direction: column;
         width: 50%;
         background-color: #344650;
 
-        p{
-        color: #b9ee17;
-        margin-bottom: 0;
+        p {
+            color: #b9ee17;
+            margin-bottom: 0;
 
-        small{
-        color: lightgray; }
-    }
+            small {
+                color: lightgray;
+            }
+        }
     }
 }
 
 // game info 
-.game_info{
+.game_info {
     width: 70%;
     padding-left: 10px;
     padding-right: 40px;
     background-color: rgba(204, 202, 202, 0.2);
 
-    h3{
+    h3 {
         color: white;
     }
-    h5{
+
+    h5 {
         color: gray;
     }
-    .info_tag{
+
+    .info_tag {
         color: #95969a;
         justify-content: space-between;
         flex-wrap: wrap;
     }
-    .info_tags{
+
+    .info_tags {
         margin-right: 5px;
-        background-color: rgba(95, 94, 94, 0.3);    }
+        background-color: rgba(95, 94, 94, 0.3);
+    }
 }
+
 // special offer 
+.container {
+    max-width: 100%;
+}
+
 .container_special_offer {
-    max-width: 980px;
     background-color: #0f1014;
     padding-bottom: 100px;
     padding-top: 30px;
-    h4{
+
+    h4 {
         color: white;
         padding-bottom: 20px;
+        padding-left: 50px;
     }
 }
-.special_offer_container{
+
+.special_offer_container {
     justify-content: space-between;
+    padding: 20px 50px;
 }
+
 .special_offer_game {
     width: calc(100%/3 - 30px);
     height: 300px;
 }
-.special_offer_img{
-    height: 285px;
+
+.special_offer_img {
+    height: 300px;
     width: 100%;
+
+    img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
 }
 
 .special_offer_price{
@@ -221,13 +272,15 @@ export default {
     }
 }
 // debug 
-.special_offer_img{
-    border: 1px solid white;
-}
-.left_slide{
-    border: 1px solid white;
-}
-.right_slide{
-    border: 1px solid white;
-}
+// .special_offer_img {
+//     // border: 1px solid white;
+// }
+
+// .left_slide {
+//     border: 1px solid white;
+// }
+
+// .right_slide {
+//     border: 1px solid white;
+// }
 </style>
