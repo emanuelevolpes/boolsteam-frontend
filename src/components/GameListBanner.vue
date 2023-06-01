@@ -14,7 +14,7 @@ export default {
 <template>
     <div class="banner row">
         <div class="thumb col-3">
-            <img class="img-fluid" src="{{ game.image }}" alt="">
+            <img class="img-fluid" :src="game.image" :alt="game.name">
         </div>
         <div class="details col ">
             <h3>{{ game.title }}</h3>
@@ -53,6 +53,12 @@ export default {
             border-radius: .3125rem;
         }
     }
-
+    .thumb{
+        img{
+            display: block;
+            width: 100%;
+            height: 12.5rem;
+        }
+    }
 }
 </style>
