@@ -86,11 +86,7 @@ export default {
 footer {
     width: 1520px;
     background-color: #171a21;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    /* è fixed in basso solo per una facilitazione grafica, nella fase finale va tolto (opzionale) */
 }
 
 .logos {
