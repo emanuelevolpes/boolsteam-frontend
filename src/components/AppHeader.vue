@@ -2,10 +2,7 @@
     <header class="text-white">
         <!--top right-->
         <div>
-
-
             <div class="box">
-
                 <ul class=" nav  destra">
                     <li class="nav-item install">
                         <a class="nav-link color-text" href="#">Installa Steam</a>
@@ -29,7 +26,6 @@
 
                     </li>
                 </ul>
-
                 <!--top right-->
                 <!-- center -->
                 <ul class="nav justify-content-center cc">
@@ -51,15 +47,11 @@
                         <a class="nav-link color-text" href="#">COMUNITA</a>
                     </li>
                 </ul>
-
             </div>
-
             <!-- bottom header -->
-
-            <div class="container">
+            <div class="container_nav_header">
                 <nav class="navbar navbar-expand-lg second-nav color-text">
                     <div class="container-fluid">
-
                         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
                             <ul class="navbar-nav  ">
                                 <li class="nav-item">
@@ -88,14 +80,11 @@
                                     </div>
                                 </form>
                             </ul>
-
                         </div>
                     </div>
-
                 </nav>
             </div>
         </div>
-
     </header>
 </template>
 
@@ -105,27 +94,6 @@ export default {
     name: 'AppHeader'
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <style scoped>
@@ -135,51 +103,42 @@ header {
     box-sizing: border-box;
 
 }
-
-
 .box {
     background-color: #171a21
 }
-
-.container {
-    width: 1200px
+.container_nav_header {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
 }
-
 .logo {
     width: 350px;
     height: 80px;
     padding-right: 50px;
 }
-
-
 .color-text {
     color: #fff;
     font-size: medium;
     font-weight: 400;
 }
-
 .search {
     background-color: #316282;
 }
-
 .key {
     background-color: #4f9ec9;
 }
-
 .cc {
     background-color: #171a21;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .second-nav {
 
     margin-top: 40px;
     background-image: linear-gradient(to right, rgba(26, 55, 121, 0.5), rgba(26, 55, 121, 1));
 
 }
-
 .destra {
     display: flex;
     align-items: center;
@@ -188,12 +147,10 @@ header {
     color: #fff;
 
 }
-
 .topR {
     align-items: center;
     justify-content: center;
 }
-
 .install {
     background-color: chartreuse;
 }
