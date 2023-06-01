@@ -13,54 +13,57 @@ export default {
     methods: {
         getOneGame() {
             axios.get(`${this.store.oneGameApi}/api/game`)
-            .then((response) => {
-                this.oneGame = response.data.game;
-                console.log(this.oneGame);            
-            })
+                .then((response) => {
+                    this.oneGame = response.data.game;
+                    console.log(this.oneGame);
+                })
         }
     },
-    computed:{
-        discountPrice(){
+    computed: {
+        discountPrice() {
             return this.oneGame.price - ((this.oneGame.price / 100) * this.oneGame.discount);
         }
     },
-    created(){
+    created() {
         this.getOneGame();
     }
 }
 </script>
 <template>
     <div class="container container_jumbo">
-        <div class="jumbo_title">
-            <h1>GIOCHI</h1>
-        </div>
-        <!-- jumbotrone  -->
-        <div class="jumbo d-flex">
-            <div class="left_slide"></div>
-            <div class="game_container d-flex">
-                <div class="game_img d-flex">
-                    <div class="game_tag p-1"><font-awesome-icon icon="fa-solid fa-bookmark" /></div>
-                    <div class="price d-flex">
-                        <div class="discount d-flex">-{{ oneGame.discount }}%</div>
-                        <div class="discount_price d-flex">
-                            <small>{{ oneGame.price }}€</small>
-                            <p>{{ discountPrice.toFixed(2) }}€</p>
+        <div class="width_jumbotrone">
+            <div class="jumbo_title">
+                <h1>GIOCHI</h1>
+            </div>
+            <div class="jumbo d-flex">
+                <div class="left_slide"></div>
+                <div class="game_container d-flex">
+                    <div class="game_img d-flex">
+                        <div class="game_tag p-1"><font-awesome-icon icon="fa-solid fa-bookmark" /></div>
+                        <div class="price d-flex">
+                            <div class="discount d-flex">-{{ oneGame.discount }}%</div>
+                            <div class="discount_price d-flex">
+                                <small>{{ oneGame.price }}€</small>
+                                <p>{{ discountPrice.toFixed(2) }}€</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- game info  -->
-                <div class="game_info">
-                    <h3>{{ oneGame.title }}</h3>
-                    <h5>Data di rilascio: {{ oneGame.year }}</h5>
-                    <div class="info_tag d-flex">
-                        <div class="info_tags" v-for="tag in oneGame.tags">{{ tag.name }}</div>
+                    <!-- game info  -->
+                    <div class="game_info">
+                        <h3>{{ oneGame.title }}</h3>
+                        <h5>Data di rilascio: {{ oneGame.year }}</h5>
+                        <div class="info_tag d-flex">
+                            <div class="info_tags" v-for="tag in oneGame.tags">{{ tag.name }}</div>
+                        </div>
+                        <div class="info_tag_down"></div>
                     </div>
-                    <div class="info_tag_down"></div>
+                    <!-- /game info  -->
                 </div>
-                <!-- /game info  -->
+                <div class="right_slide"></div>
             </div>
-            <div class="right_slide"></div>
         </div>
+        <!-- jumbotrone  -->
+
     </div>
     <!-- /jumbotrone  -->
     <!-- special offer  -->
@@ -93,7 +96,7 @@ export default {
             </div>
             <div class="special_offer_game">
                 <div class="special_offer_img">
-                <img src="https://cdn2.unrealengine.com/uncharted-legacy-of-thieves-2400x1350-48ae6d0d3c67.png">
+                    <img src="https://cdn2.unrealengine.com/uncharted-legacy-of-thieves-2400x1350-48ae6d0d3c67.png">
                 </div>
                 <div class="special_offer_price d-flex">
                     <div class="special_offer_discount d-flex align-items-center">50%</div>
@@ -113,6 +116,11 @@ export default {
     background-image: url(https://picsum.photos/200/300);
     background-size: cover;
     padding-bottom: 30px;
+
+    .width_jumbotrone {
+        width: 1200px;
+        margin: 0 auto;
+    }
 
     .jumbo_title {
         width: 70%;
@@ -183,9 +191,11 @@ export default {
         background-color: #344650;
         font-size: 12px;
         color: white;
-        small{
+
+        small {
             text-decoration: line-through 1px;
         }
+
         p {
             color: #b9ee17;
             margin-bottom: 0;
@@ -227,10 +237,10 @@ export default {
 // special offer 
 .container {
     max-width: 100%;
+    width: 1200px;
 }
 
 .container_special_offer {
-    background-color: #0f1014;
     padding-bottom: 100px;
     padding-top: 30px;
 
@@ -303,5 +313,4 @@ export default {
 
 // .right_slide {
 //     border: 1px solid white;
-// }
-</style>
+// }</style>
