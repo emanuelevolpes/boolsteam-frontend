@@ -75,10 +75,10 @@ export default {
                         src="https://assets.2k.com/1a6ngf98576c/2RNTmC7iLr6YVlxBSmE4M3/11177cffa2bdbedb226b089c4108726a/NBA23-WEBSITE-PRE_ORDER-HOMPAGE-MODULE2-RETAIL_CAROUSEL-CROSSGEN_EDITION-425x535.jpg">
                 </div>
                 <div class="special_offer_price d-flex">
-                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_discount d-flex align-items-center">-50%</div>
                     <div class="special_offer_prices">
-                        <small>price</small>
-                        <p>price/</p>
+                        <small style="text-decoration: line-through;">100,00 €</small>
+                        <p>50,00 €</p>
                     </div>
                 </div>
             </div>
@@ -87,10 +87,10 @@ export default {
                         src="https://cdn.cloudflare.steamstatic.com/steam/apps/42700/capsule_616x353.jpg?t=1654809667">
                 </div>
                 <div class="special_offer_price d-flex">
-                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_discount d-flex align-items-center">-50%</div>
                     <div class="special_offer_prices">
-                        <small>price</small>
-                        <p>price/</p>
+                        <small style="text-decoration: line-through;">100,00 €</small>
+                        <p>50,00 €</p>
                     </div>
                 </div>
             </div>
@@ -99,10 +99,10 @@ export default {
                     <img src="https://cdn2.unrealengine.com/uncharted-legacy-of-thieves-2400x1350-48ae6d0d3c67.png">
                 </div>
                 <div class="special_offer_price d-flex">
-                    <div class="special_offer_discount d-flex align-items-center">50%</div>
+                    <div class="special_offer_discount d-flex align-items-center">-50%</div>
                     <div class="special_offer_prices">
-                        <small>price</small>
-                        <p>price/</p>
+                        <small style="text-decoration: line-through;">100,00 €</small>
+                        <p>50,00 €</p>
                     </div>
                 </div>
             </div>

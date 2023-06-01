@@ -152,6 +152,6 @@ header {
     justify-content: center;
 }
 .install {
-    background-color: chartreuse;
+    background-color: #4B6A24;
 }
 </style>
