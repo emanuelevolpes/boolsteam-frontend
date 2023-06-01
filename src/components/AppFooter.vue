@@ -1,8 +1,8 @@
 <template>
     <footer>
 
-        <div>
-        
+        <div class="footer_content">
+
             <hr class="info mt-5">
             <div class="d-flex justify-content-between ">
                 <div><img src="../img/valve.png" alt="" class="logos"></div>
@@ -84,9 +84,12 @@ export default {
 
 <style scoped>
 footer {
-    width: 1520px;
     background-color: #171a21;
-    width: 100%;
+}
+
+.footer_content {
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .logos {
